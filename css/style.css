@@ -1,0 +1,139 @@
+@charset "utf-8";
+body
+{
+    margin:0px;
+    background: rgb(142, 14, 0);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1F1C18, #8E0E00);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1F1C18, #8E0E00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@font-face {
+    font-family: 'sourcecodepro';
+    src: url(../fonts/SourceCodePro-Regular.ttf);
+}
+@font-face {
+    font-family: 'bebas';
+    src: url(../fonts/BebasNeue.otf);
+}
+@font-face {
+    font-family: 'trebuc';
+    src: url(../fonts/trebuc.ttf);
+}
+#banner
+{
+    padding: 10px 0px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    font-family: 'bebas';
+    font-size: 40px;
+    color: rgba(255, 255, 255, 1.00);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1.00) ;
+}
+#box
+{
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.70);
+    border-radius: 5px;
+    padding: 10px 10px;
+    transition: 0.5s;
+}
+#box:hover
+{
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.70);
+    border-radius: 5px;
+    padding: 10px 10px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 1.00);
+    transition: 0.5s;
+}
+.formHeading
+{
+    font-family: 'trebuc';
+    font-size: 30px;
+    color: rgba(255, 255, 255, 1.00);
+}
+.labels
+{
+    font-family: 'sourcecodepro';
+    font-size: 18px;
+    color: rgba(142, 14, 0, 0.8);
+}
+input, select, textarea
+{
+    font-family: 'sourcecodepro';
+    font-size: '18px';
+    font-weight: bold;
+    background-color: transparent;
+    border: 1px solid rgba(142, 14, 0, 0.8);
+    border-radius: 2px;
+    padding: 5px 2px;
+    color: rgba(142, 14, 0, 0.8);
+    transition: 0.5s;
+}
+input:hover, select:hover, textarea:hover, input:focus, select:focus, textarea:focus
+{
+    font-family: 'sourcecodepro';
+    font-size: '18px';
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid rgba(255, 255, 255, 1.00);
+    border-radius: 2px;
+    padding: 5px 2px;
+    color: rgba(110, 11, 0, 0.8);
+    transition: 0.5s;
+    box-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+input[type=submit]
+{
+    cursor: pointer;
+}
+a.link:link, a.link:active, a.link:visited
+{
+    text-decoration: none;
+    color: rgba(142, 14, 0, 0.8);
+    transition: 0.5s;
+}
+a.link:hover
+{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+    transition: 0.5s;
+}
+td
+{
+    vertical-align: top;
+}
+.manageTable
+{
+    font-family: 'sourcecodepro';
+    font-size: '18px';
+    text-align: center;
+    color: rgba(142, 14, 0, 1.00);
+}
+a.footer:link, a.footer:active, a.footer:visited
+{
+    text-decoration: none;
+    font-family: 'sourcecodepro';
+    font-size: 12px;
+    color: rgba(255, 255, 255, 1.00);
+    transition: 0.5s;
+}
+a.footer:hover
+{
+    text-decoration: none;
+    font-family: 'sourcecodepro';
+    font-size: 12px;
+    color: rgba(204, 146, 140, 0.8);
+    transition: 0.5s;
+}
+#footer
+{
+    width: 100%;
+    font-family: 'sourcecodepro';
+    font-size: 12px;
+    padding: 10px 0px;
+    position: fixed;
+    bottom: 0;
+    color: rgba(255, 255, 255, 1.00);
+    background-color: rgba(0, 0, 0, 0.75);
+}

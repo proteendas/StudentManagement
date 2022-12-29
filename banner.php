@@ -1,0 +1,1 @@
+<div id="banner" align="center">Student Management System</div>
