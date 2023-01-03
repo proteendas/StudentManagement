@@ -53,7 +53,7 @@ if(!empty($_GET['msg']))
         <br>
         <div align="center">
             <div id="box">
-                <span class="formHeading">Welcome <?php echo $details['name']; if($details['user_type'] == 1){ echo " - [ADMIN]"; }?></span>
+                <span class="formHeading">Manage Student Details</span>
                 <br>
                 <br>
                 <img src="profile_pictures/<?php echo $details['picture'];?>" height="100" width="100" />
@@ -89,6 +89,7 @@ if(!empty($_GET['msg']))
                     }?>
                 </table>
                 <br>
+                <input type="button" value="ADD DETAILS" onClick="window.location='addDetails.php'">
                 <input type="button" value="HOME" onClick="window.location='home.php'">
             </div>
         </div>

@@ -1,6 +1,15 @@
-<!--public-page-->
+<!--admin-page-->
 <?php
 require_once("config.php");
+if(!isset($_SESSION['email']))
+{
+    header("location:index.php");
+}
+$details = mysqli_fetch_array(mysqli_query($al, "SELECT * FROM students WHERE email = '".$_SESSION['email']."'"));
+if($details['user_type'] != 1)
+{
+    header("location:home.php");
+}
 if(!empty($_POST))
 {
     $hash_key = sha1(microtime());
@@ -16,7 +25,7 @@ if(!empty($_POST))
         $file_id = md5($_POST['email']).".".$extension;
         if($extension == 'webp' || $extension == 'WEBP' || $extension == 'jpeg' || $extension == 'JPEG' || $extension == 'JPG' || $extension == 'jpg' || $extension == 'PNG' || $extension == 'png')
         {
-            $sql = mysqli_query($al, "INSERT INTO students(user_type, hash_key, name, dob, address, email, password, picture, time, date, agent, ip) VALUES('0', '".$hash_key."','".mysqli_real_escape_string($al,$_POST['name'])."', '".mysqli_real_escape_string($al,$_POST['dob'])."', '".mysqli_real_escape_string($al,$_POST['address'])."', '".mysqli_real_escape_string($al,$_POST['email'])."', '".mysqli_real_escape_string($al,sha1($_POST['p1']))."', '".$file_id."', '".date('h:i A')."', '".date('Y-m-d')."', '".$_SERVER['HTTP_USER_AGENT']."', '".$_SERVER['REMOTE_ADDR']."')");
+            $sql = mysqli_query($al, "INSERT INTO students(user_type, hash_key, name, dob, address, email, password, picture, time, date, agent, ip) VALUES('0', '".$hash_key."','".mysqli_real_escape_string($al,$_POST['name'])."', '".mysqli_real_escape_string($al,$_POST['dob'])."', '".mysqli_real_escape_string($al,$_POST['address'])."', '".mysqli_real_escape_string($al,$_POST['email'])."', '".mysqli_real_escape_string($al,sha1(1234))."', '".$file_id."', '".date('h:i A')."', '".date('Y-m-d')."', '".$_SERVER['HTTP_USER_AGENT']."', '".$_SERVER['REMOTE_ADDR']."')");
             if($sql)
             {
                 move_uploaded_file($_FILES["dp"]["tmp_name"],$upload_dir."/".$file_id);
@@ -62,7 +71,7 @@ if(!empty($_POST))
         <br>
         <div align="center">
             <div id="box">
-                <span class="formHeading">- New Registration -</span>
+                <span class="formHeading">Add New Student Details</span>
                 <br>
                 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" enctype="multipart/form-data" onsubmit="return passwords()">
                     <table border="0" cellpadding="5" cellspacing="5">
@@ -82,14 +91,6 @@ if(!empty($_POST))
                             <td><input type="email" name="email" size="20" placeholder="Enter Email" required></td>
                         </tr>
                         <tr>
-                            <td class="labels">Password:</td>
-                            <td><input type="password" name="p1" id="p1" size="20" placeholder="Enter Password" required></td>
-                        </tr>
-                        <tr>
-                            <td class="labels">Confirm Password:</td>
-                            <td><input type="password" name="p2" id="p2" size="20" placeholder="Re-enter Password" required></td>
-                        </tr>
-                        <tr>
                             <td class="labels">Address:</td>
                             <td><textarea name="address" placeholder="Enter Permanent Address" required></textarea></td>
                         </tr>
@@ -97,13 +98,9 @@ if(!empty($_POST))
                             <td class="labels">Profile Picture:</td>
                             <td><input type="file" name="dp" required></td>
                         </tr>
-                        <tr>
-                            <td class="labels" colspan="2" align="center"><input type="submit" value="Register" onclick="return confirm('Are you sure?');"></td>
-                        </tr>
-                        <tr>
-                            <td class="labels" colspan="2" align="center">Already Registered? <a href="index.php" class="link">Login here</a></td>
-                        </tr>
                     </table>
+                    <input type="submit" value="ADD" onclick="return confirm('Are you sure?');">
+                    <input type="button" value="BACK" onClick="window.location='manageStudents.php'">
                 </form>
             </div>
         </div>
